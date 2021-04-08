@@ -68,7 +68,8 @@ function makeHtmlBoard() {
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 0
-
+  //start from top (height -1) & loop throw each board cell in the column
+  //if board cell is undefined, return y, else return null
   for (let y = HEIGHT - 1; y >= 0; y--) {
     if (!board[y][x]) {
       return y;
@@ -175,7 +176,7 @@ function checkForWin() {
 //only check top row!
 /*go through board and check for undefined, if none game over*/
 function checkForTie() {
-  return board.every(row => row.every(cell => cell != undefined))
+  return board[0].every(cell => cell != undefined);
 }
 
 
