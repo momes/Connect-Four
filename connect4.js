@@ -92,7 +92,7 @@ function placeInTable(y, x) {
 /** endGame: announce game end */
 function endGame(msg) {
   // TODO: pop up alert message
-  setTimeout(alert(msg), 500);
+  setTimeout(function () { alert(msg); }, 1000);
 
 }
 
@@ -116,8 +116,8 @@ function handleClick(evt) {
 
   // check for win
   if (checkForWin()) {
-    console.log(`${currPlayer} wins`);
     endGame(`Player ${currPlayer} won!`);
+    console.log(`${currPlayer} wins`);
   }
 
   // check for tie
@@ -131,6 +131,7 @@ function handleClick(evt) {
   // TODO: switch currPlayer 1 <-> 2
   currPlayer = currPlayer === 1 ? 2 : 1;
 }
+
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
 function checkForWin() {
